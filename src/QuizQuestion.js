@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import QuizQuestionButton from "./QuizQuestionButton";
 class QuizQuestion extends Component {
   render() {
+    const handleClick = (buttonText) => {};
     return (
       <main>
         <section>
@@ -9,7 +10,9 @@ class QuizQuestion extends Component {
         </section>
         <section className="buttons">
           <ul>
-            <QuizQuestionButton button_text={this.props.quiz_question.answer_options[0]}></QuizQuestionButton>
+            {this.props.quiz_question.answer_options.map((item, index) => (
+              <QuizQuestionButton button_text={this.props.quiz_question.answer_options[index]} key={index} />
+            ))}
           </ul>
         </section>
       </main>
